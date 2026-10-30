@@ -537,7 +537,9 @@
   function renderSpotlight() {
     const p = byId['el-anr'] || FEATURED[0];
     $('#spotlight').dataset.id = p.id;
-    $('#spotMedia').innerHTML = `<div class="spotlight__halo"></div>${Bottle.svg(p)}`;
+    $('#spotMedia').innerHTML = p.img
+      ? `<div class="spotlight__halo"></div><div class="spotlight__plate">${Bottle.svg(p)}</div>`
+      : `<div class="spotlight__halo"></div>${Bottle.svg(p)}`;
     $('#spotBrand').textContent = p.brand;
     $('#spotName').textContent = p.name;
     $('#spotDesc').textContent = p.desc;

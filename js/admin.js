@@ -32,7 +32,7 @@
   const fmtDate = (d, opts = { day: 'numeric', month: 'short' }) => new Date(d).toLocaleDateString('en-US', opts);
   const fmtDateTime = (d) => new Date(d).toLocaleString('en-US', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' });
   const initials = (name) => name.split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
-  const hueFor = (s) => ['#E0A98C', '#B98AA8', '#8FB3A3', '#D7B46A', '#9AA6D6', '#D98C8C'][[...s].reduce((a, c) => a + c.charCodeAt(0), 0) % 6];
+  const hueFor = (s) => ['#EBA3B2', '#B98AA8', '#8FB3A3', '#D7B46A', '#9AA6D6', '#D98C8C'][[...s].reduce((a, c) => a + c.charCodeAt(0), 0) % 6];
 
   const STATUSES = [
     { id: 'Processing', icon: 'a-clock', c: 'var(--st-processing)' },
@@ -512,7 +512,7 @@
     setSub(`${list.length} of ${PRODUCTS.length} products · ${PRODUCTS.filter((p) => p.hidden).length} hidden`);
   }
 
-  const EDIT_FIELDS = ['name', 'brand', 'cat', 'size', 'price', 'old', 'stock', 'badge', 'shape', 'body', 'cap', 'label', 'desc', 'key', 'concerns', 'hidden'];
+  const EDIT_FIELDS = ['name', 'brand', 'cat', 'size', 'price', 'old', 'stock', 'badge', 'img', 'shape', 'body', 'cap', 'label', 'desc', 'key', 'concerns', 'hidden'];
 
   function persistProduct(p) {
     const cat = store.get('catalog', { edits: {}, added: [] });
@@ -559,6 +559,7 @@
           <label class="field"><span>Stock</span><input name="stock" type="number" step="1" min="0" value="${p.stock}" /></label>
           <label class="field"><span>Size</span><input name="size" value="${esc(p.size)}" /></label>
           <label class="field"><span>Badge</span><select name="badge">${opt([['', 'None'], ['Bestseller', 'Bestseller'], ['New', 'New'], ['Luxury', 'Luxury'], ['K-Beauty', 'K-Beauty']], p.badge)}</select></label>
+          <label class="field full"><span>Product image URL (leave empty to use a drawn pack)</span><input name="img" value="${esc(p.img || '')}" placeholder="https://… or assets/products/my-product.webp" /></label>
           <label class="field"><span>Pack shape</span><select name="shape">${opt(['dropper', 'pump', 'tube', 'jar', 'bottle', 'spray'].map((s) => [s, s[0].toUpperCase() + s.slice(1)]), p.shape)}</select></label>
           <label class="field"><span>Pack colour</span><input name="body" type="color" value="${p.body}" /></label>
           <label class="field"><span>Cap colour</span><input name="cap" type="color" value="${p.cap}" /></label>
@@ -584,7 +585,7 @@
         ...p,
         name: f.get('name').trim(), brand: f.get('brand').trim(), cat: f.get('cat'), size: f.get('size').trim(),
         price: num('price'), old: num('old') || null, stock: num('stock') ?? 0, badge: f.get('badge') || '',
-        shape: f.get('shape'), body: f.get('body'), cap: f.get('cap'),
+        img: f.get('img').trim(), shape: f.get('shape'), body: f.get('body'), cap: f.get('cap'),
         label: [f.get('label1'), f.get('label2')].map((s) => s.trim()).filter(Boolean),
         desc: f.get('desc').trim(), key: f.get('key').split(',').map((s) => s.trim()).filter(Boolean),
         concerns: f.getAll('concerns'), hidden: f.get('hidden') === 'on',
