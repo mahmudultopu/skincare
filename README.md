@@ -16,6 +16,7 @@ Built with plain HTML, CSS and JavaScript. No framework and no build step, so it
 - **Multi-currency**: USD, EUR, GBP, BDT, INR, AED, CAD and AUD, converted from base USD prices.
 - **Cart & checkout**: bag drawer, free-shipping progress bar, shipping methods, cash on delivery or card/bank transfer, promo codes, order confirmation and order history.
 - **Wishlist and quick-view** product modal.
+- **Glass admin dashboard** (`/admin`): revenue and order KPIs with trend sparklines, an interactive revenue chart, order status, skin-type analytics, top products, order management (status updates, CSV export), a product editor with live packshot preview (price, stock, badges, hide/show), customers, and store settings.
 - **Optional WhatsApp ordering**: set a number in the config and an "Order on WhatsApp" button appears with the order already written out.
 - **Responsive and accessible**: mobile-first layout, keyboard Escape support, `prefers-reduced-motion` respected.
 
@@ -33,13 +34,16 @@ Built with plain HTML, CSS and JavaScript. No framework and no build step, so it
 
 ```text
 skincare/
-├── index.html          # Page markup and overlays (cart, checkout, modals)
+├── index.html          # Storefront markup and overlays (cart, checkout, modals)
+├── admin.html          # Admin console
 ├── css/
-│   └── style.css       # Design tokens, layout, components, responsive rules
+│   ├── style.css       # Storefront design tokens, layout, components
+│   └── admin.css       # Glass admin UI
 ├── js/
 │   ├── products.js     # Store config + product catalogue (edit me)
 │   ├── bottle.js       # SVG packshot renderer for product images
-│   └── app.js          # Shop, cart, checkout, orders, currency, AI scan
+│   ├── app.js          # Shop, cart, checkout, orders, currency, AI scan
+│   └── admin.js        # Dashboard, charts, orders, products, customers, settings
 ├── assets/img/         # Photography (hero, concerns, avatars)
 └── vercel.json         # Security and cache headers
 ```
@@ -92,6 +96,14 @@ Promo codes are defined in `PROMOS` inside [`js/app.js`](js/app.js) (default: `W
 The site is deployed on **Vercel** as a static project (no build step). To redeploy automatically on every push, connect this repository under **Project → Settings → Git** in the Vercel dashboard.
 
 To deploy your own copy: import the repository at <https://vercel.com/new>, keep the framework preset as **Other**, leave the build command empty, and deploy.
+
+## Admin dashboard
+
+Open `/admin` (or `admin.html` locally) and sign in with the demo password `serae2026`. You can change the password under **Settings**.
+
+The dashboard reads orders, AI scans and product edits from the same browser storage the storefront writes to. Product and settings changes apply to the storefront in that browser. Sample data, clearly tagged **SAMPLE**, fills the reports until real orders arrive, and you can turn it off in **Settings**.
+
+> The admin sign-in is a client-side gate for demos, not real security. Before going live, put the admin panel behind server-side authentication and move the data to a backend.
 
 ## Before going live
 
