@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231E1A17'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' fill='%23F5F0EA' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232B2024'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' fill='%23FBF7F5' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
 
@@ -104,23 +104,25 @@
         <div class="face-card" id="faceCard">
           <!-- The stage keeps the photo's 4:5 ratio so the scan points stay locked to the face at any crop -->
           <div class="face-stage">
-            <img src="assets/img/hero.jpg" alt="Woman with natural skin being analysed by AI" class="face-card__img" fetchpriority="high" />
+            <img src="assets/img/hero.jpg" alt="Korean beauty model with glowing skin being analysed by AI" class="face-card__img" fetchpriority="high" />
             <svg class="mesh" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true">
-              <polyline points="42,37.5 55,27.5 70,30 77,40 75,57.5 70,71 60,76 50,71 41,62.5 40,50 42,37.5" />
-              <polyline points="55,27.5 56,42.5 66,55 73,43.75 70,30" />
-              <polyline points="44,55 56,42.5 50,52 66,55 64,65 50,71" />
-              <polyline points="41,62.5 50,52 60,76" />
+              <polyline points="35,34.4 52.5,28.1 70,39.1 65,56.3 67.5,65.6 43.8,71.9 33.8,61 36.3,53.1 35,34.4" />
+              <polyline points="52.5,28.1 42.5,37.5 46.3,53.1 60,46.1 52.5,28.1" />
+              <polyline points="36.3,53.1 46.3,53.1 65,56.3" />
+              <polyline points="46.3,53.1 43.8,61.75 43.8,71.9" />
+              <polyline points="42.5,37.5 36.3,53.1" />
+              <polyline points="60,46.1 65,56.3" />
             </svg>
             <div class="points" aria-hidden="true">
-              <i style="left:55%;top:22%"></i><i style="left:56%;top:34%"></i><i style="left:73%;top:35%"></i>
-              <i style="left:66%;top:44%"></i><i style="left:44%;top:44%"></i><i style="left:64%;top:52%"></i>
-              <i style="left:60%;top:61%"></i><i style="left:40%;top:50%"></i><i style="left:42%;top:30%"></i>
-              <i style="left:75%;top:46%"></i><i style="left:50%;top:57%"></i><i style="left:70%;top:24%"></i>
+              <i style="left:52.5%;top:22.5%"></i><i style="left:42.5%;top:30%"></i><i style="left:60%;top:36.9%"></i>
+              <i style="left:46.3%;top:42.5%"></i><i style="left:43.8%;top:49.4%"></i><i style="left:43.8%;top:57.5%"></i>
+              <i style="left:36.3%;top:42.5%"></i><i style="left:65%;top:45%"></i><i style="left:33.8%;top:48.8%"></i>
+              <i style="left:67.5%;top:52.5%"></i><i style="left:35%;top:27.5%"></i><i style="left:70%;top:31.3%"></i>
             </div>
-            <div class="tag tag--l" style="left:55%;top:22%;--d:.6s"><span>Fine lines</span><b>Low · 12%</b></div>
-            <div class="tag tag--l" style="left:44%;top:44%;--d:1.2s"><span>Hydration</span><b id="liveHyd">78%</b></div>
-            <div class="tag tag--r" style="left:73%;top:35%;--d:1.8s"><span>Dark circles</span><b>Mild</b></div>
-            <div class="tag tag--r" style="left:66%;top:47%;--d:2.4s"><span>Pores</span><b>Minimal</b></div>
+            <div class="tag tag--l" style="left:52.5%;top:22.5%;--d:.6s"><span>Fine lines</span><b>Low · 12%</b></div>
+            <div class="tag tag--l" style="left:36.3%;top:42.5%;--d:1.2s"><span>Hydration</span><b id="liveHyd">78%</b></div>
+            <div class="tag tag--r" style="left:60%;top:36.9%;--d:1.8s"><span>Dark circles</span><b>Mild</b></div>
+            <div class="tag tag--r" style="left:65%;top:45%;--d:2.4s"><span>Pores</span><b>Minimal</b></div>
           </div>
           <div class="face-card__vignette"></div>
           <div class="scan-line"></div>
