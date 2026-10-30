@@ -13,7 +13,7 @@ const Bottle = (() => {
     return 0.2126 * r + 0.7152 * g + 0.0722 * b;
   };
   const inkFor = (hex) => (lum(hex) > 0.42 ? '#2A2420' : '#FBF7F2');
-  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
   // Each shape: cap parts, body parts, and the label box (x, y, w, h)
   const SHAPES = {
@@ -83,6 +83,10 @@ const Bottle = (() => {
   }
 
   function svg(p, { cls = '' } = {}) {
+    // Real packshot when available; the drawn pack is the fallback
+    if (p.img) {
+      return `<img class="pack pack--photo ${cls}" src="${esc(p.img)}" alt="${esc(p.brand + ' ' + p.name)}" loading="lazy" decoding="async" />`;
+    }
     const s = SHAPES[p.shape] || SHAPES.bottle;
     const id = 'b' + p.id.replace(/[^a-z0-9]/gi, '');
     const scale = p.scale || 1;

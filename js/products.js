@@ -259,6 +259,9 @@ const PRODUCTS = [
     desc: 'Overnight retinal treatment that visibly lifts, firms and smooths deep lines and wrinkles.', key: ['Retinal', 'Peptides', 'Hyaluronic acid'] },
 ];
 
+// Every catalogue product above has a packshot in assets/products/<id>.webp
+PRODUCTS.forEach((p) => { p.img ??= `assets/products/${p.id}.webp`; });
+
 /* ----------------------------------------------------------
    Admin overrides (saved from admin.html in this browser):
    store settings, product edits, added and hidden products.
