@@ -2,6 +2,8 @@
 
 A premium skincare e-commerce storefront with an **AI skin-analysis experience** and a catalogue of authentic products from **30+ international brands**: The Ordinary, CeraVe, La Roche-Posay, Estée Lauder, SK-II, Laneige, COSRX, Dior, Lancôme and more.
 
+**Live demo:** <https://skincare-rho-six.vercel.app>
+
 Built with plain HTML, CSS and JavaScript. No framework and no build step, so it deploys anywhere as a static site.
 
 ---
@@ -19,17 +21,17 @@ Built with plain HTML, CSS and JavaScript. No framework and no build step, so it
 
 ## Tech stack
 
-| Layer   | Choice |
-| ------- | ------ |
-| Markup  | Semantic HTML5, inline SVG icon sprite |
+| Layer   | Choice                                                               |
+| ------- | -------------------------------------------------------------------- |
+| Markup  | Semantic HTML5, inline SVG icon sprite                               |
 | Styling | Hand-written CSS (custom properties, grid, `color-mix`, `@property`) |
-| Logic   | Vanilla JavaScript (ES2020+), no dependencies |
-| Fonts   | Fraunces + Manrope (Google Fonts) |
-| Hosting | Vercel (static) |
+| Logic   | Vanilla JavaScript (ES2020+), no dependencies                        |
+| Fonts   | Fraunces + Manrope (Google Fonts)                                    |
+| Hosting | Vercel (static)                                                      |
 
 ## Project structure
 
-```
+```text
 skincare/
 ├── index.html          # Page markup and overlays (cart, checkout, modals)
 ├── css/
@@ -87,7 +89,7 @@ Promo codes are defined in `PROMOS` inside [`js/app.js`](js/app.js) (default: `W
 
 ## Deployment
 
-The site is deployed on **Vercel** as a static project. Pushes to `main` deploy automatically.
+The site is deployed on **Vercel** as a static project (no build step). To redeploy automatically on every push, connect this repository under **Project → Settings → Git** in the Vercel dashboard.
 
 To deploy your own copy: import the repository at <https://vercel.com/new>, keep the framework preset as **Other**, leave the build command empty, and deploy.
 
