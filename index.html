@@ -78,7 +78,7 @@
     <div class="container hero__grid">
       <div class="hero__copy">
         <span class="eyebrow reveal"><svg><use href="#i-spark"/></svg> AI cosmetologist · now live</span>
-        <h1 class="hero__title reveal">Your skin,<br/><em>understood</em> by AI.</h1>
+        <h1 class="hero__title"><span class="line"><span>Your skin,</span></span><span class="line"><span><em>understood</em> by AI.</span></span></h1>
         <p class="hero__lead reveal">Scan your face in 30 seconds. Our AI reads hydration, texture, tone and pores, then builds a personal routine from 30+ authentic international brands — delivered to your door.</p>
         <div class="hero__cta reveal">
           <a href="#analysis" class="btn btn--dark"><svg><use href="#i-camera"/></svg> Start free skin scan</a>
@@ -102,28 +102,38 @@
 
       <div class="hero__visual reveal">
         <div class="face-card" id="faceCard">
-          <img src="assets/img/hero.jpg" alt="Woman with natural skin being analysed by AI" class="face-card__img" />
+          <!-- The stage keeps the photo's 4:5 ratio so the scan points stay locked to the face at any crop -->
+          <div class="face-stage">
+            <img src="assets/img/hero.jpg" alt="Woman with natural skin being analysed by AI" class="face-card__img" fetchpriority="high" />
+            <svg class="mesh" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="42,37.5 55,27.5 70,30 77,40 75,57.5 70,71 60,76 50,71 41,62.5 40,50 42,37.5" />
+              <polyline points="55,27.5 56,42.5 66,55 73,43.75 70,30" />
+              <polyline points="44,55 56,42.5 50,52 66,55 64,65 50,71" />
+              <polyline points="41,62.5 50,52 60,76" />
+            </svg>
+            <div class="points" aria-hidden="true">
+              <i style="left:55%;top:22%"></i><i style="left:56%;top:34%"></i><i style="left:73%;top:35%"></i>
+              <i style="left:66%;top:44%"></i><i style="left:44%;top:44%"></i><i style="left:64%;top:52%"></i>
+              <i style="left:60%;top:61%"></i><i style="left:40%;top:50%"></i><i style="left:42%;top:30%"></i>
+              <i style="left:75%;top:46%"></i><i style="left:50%;top:57%"></i><i style="left:70%;top:24%"></i>
+            </div>
+            <div class="tag tag--l" style="left:55%;top:22%;--d:.6s"><span>Fine lines</span><b>Low · 12%</b></div>
+            <div class="tag tag--l" style="left:44%;top:44%;--d:1.2s"><span>Hydration</span><b id="liveHyd">78%</b></div>
+            <div class="tag tag--r" style="left:73%;top:35%;--d:1.8s"><span>Dark circles</span><b>Mild</b></div>
+            <div class="tag tag--r" style="left:66%;top:47%;--d:2.4s"><span>Pores</span><b>Minimal</b></div>
+          </div>
           <div class="face-card__vignette"></div>
           <div class="scan-line"></div>
-          <svg class="mesh" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true">
-            <polyline points="42,37.5 55,27.5 70,30 77,40 75,57.5 70,71 60,76 50,71 41,62.5 40,50 42,37.5" />
-            <polyline points="55,27.5 56,42.5 66,55 73,43.75 70,30" />
-            <polyline points="44,55 56,42.5 50,52 66,55 64,65 50,71" />
-            <polyline points="41,62.5 50,52 60,76" />
-          </svg>
-          <div class="points" aria-hidden="true">
-            <i style="left:55%;top:22%"></i><i style="left:56%;top:34%"></i><i style="left:73%;top:35%"></i>
-            <i style="left:66%;top:44%"></i><i style="left:44%;top:44%"></i><i style="left:64%;top:52%"></i>
-            <i style="left:60%;top:61%"></i><i style="left:40%;top:50%"></i><i style="left:42%;top:30%"></i>
-            <i style="left:75%;top:46%"></i><i style="left:50%;top:57%"></i><i style="left:70%;top:24%"></i>
-          </div>
 
           <div class="live-chip"><span class="dot"></span> Live analysis <b id="liveTimer">00:12</b></div>
 
-          <div class="tag tag--l" style="left:55%;top:22%;--d:.6s"><span>Fine lines</span><b>Low · 12%</b></div>
-          <div class="tag tag--l" style="left:44%;top:44%;--d:1.2s"><span>Hydration</span><b id="liveHyd">78%</b></div>
-          <div class="tag tag--r" style="left:73%;top:35%;--d:1.8s"><span>Dark circles</span><b>Mild</b></div>
-          <div class="tag tag--r" style="left:66%;top:47%;--d:2.4s"><span>Pores</span><b>Minimal</b></div>
+          <div class="face-hud" aria-label="Live skin report">
+            <div class="face-hud__head"><span>Skin report</span><b><i class="dot dot--green"></i> 68 zones</b></div>
+            <div class="hud-row"><span>Hydration</span><i style="--w:78%"></i><b>78</b></div>
+            <div class="hud-row"><span>Texture</span><i style="--w:84%"></i><b>84</b></div>
+            <div class="hud-row"><span>Radiance</span><i style="--w:71%"></i><b>71</b></div>
+            <div class="hud-row"><span>Barrier</span><i style="--w:88%"></i><b>88</b></div>
+          </div>
         </div>
 
         <div class="float-card float-card--score">
@@ -259,6 +269,28 @@
     </div>
   </section>
 
+  <!-- SPOTLIGHT -->
+  <section class="spotlight-wrap">
+    <div class="container">
+      <div class="spotlight reveal" id="spotlight" data-id="">
+        <div class="spotlight__copy">
+          <span class="eyebrow eyebrow--light"><svg><use href="#i-spark"/></svg> Product of the month</span>
+          <small class="spotlight__brand" id="spotBrand"></small>
+          <h2 id="spotName"></h2>
+          <div class="spotlight__rating" id="spotRating"></div>
+          <p id="spotDesc"></p>
+          <div class="spotlight__keys" id="spotKeys"></div>
+          <div class="spotlight__buy">
+            <div class="spotlight__price" id="spotPrice"></div>
+            <button class="btn btn--light" data-action="add"><svg><use href="#i-bag"/></svg> Add to bag</button>
+            <button class="btn btn--outline-light" data-action="view">Details</button>
+          </div>
+        </div>
+        <div class="spotlight__media" id="spotMedia"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ROUTINE / EXPERT -->
   <section class="routine section" id="routine">
     <div class="container routine__grid">
@@ -347,12 +379,13 @@
     </div>
     <div><h5>Shop</h5><a href="#shop" data-cat-link="serum">Serums</a><a href="#shop" data-cat-link="moisturizer">Moisturizers</a><a href="#shop" data-cat-link="sunscreen">Sunscreen</a><a href="#shop" data-cat-link="cleanser">Cleansers</a></div>
     <div><h5>Discover</h5><a href="#analysis">AI skin analysis</a><a href="#concerns">Shop by concern</a><a href="#routine">Routine guide</a><a href="#brands">Brands</a></div>
-    <div><h5>Help</h5><a href="#" data-open="orders">Track my order</a><a href="#">Shipping & returns</a><a href="#">Authenticity promise</a><a href="#">Contact us</a></div>
+    <div><h5>Help</h5><a href="#" data-open="orders">Track my order</a><a href="#">Shipping & returns</a><a href="#">Authenticity promise</a><a href="admin.html">Admin dashboard</a></div>
   </div>
   <div class="container footer__base">
     <small>© <span id="year"></span> Seraé. All rights reserved.</small>
     <small>Brand names and trademarks belong to their respective owners.</small>
   </div>
+  <div class="footer__mark" aria-hidden="true">Seraé</div>
 </footer>
 
 <!-- ===== Overlays ===== -->

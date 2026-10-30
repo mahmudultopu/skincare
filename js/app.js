@@ -52,7 +52,10 @@
   const fmtCount = (n) => (n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : String(n));
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
+  const soldOut = (p) => p.stock === 0;
+
   function badgeHTML(p) {
+    if (soldOut(p)) return '<span class="badge badge--SoldOut">Sold out</span>';
     if (p.old) return `<span class="badge badge--Sale">−${Math.round((1 - p.price / p.old) * 100)}%</span>`;
     if (p.badge) return `<span class="badge badge--${p.badge.replace(/\W/g, '')}">${p.badge}</span>`;
     return '';
@@ -103,7 +106,7 @@
         <span class="card__brand">${esc(p.brand)}</span>
         <h3 class="card__name" data-action="view">${esc(p.name)}</h3>
         <div class="card__meta"><span class="stars"><svg><use href="#i-star"/></svg><b>${p.rating.toFixed(1)}</b></span><span>(${fmtCount(p.reviews)})</span><span>·</span><span>${p.size}</span></div>
-        <div class="card__foot"><span class="price">${priceHTML(p)}</span><button class="add" data-action="add" aria-label="Add to bag"><svg><use href="#i-plus"/></svg></button></div>
+        <div class="card__foot"><span class="price">${priceHTML(p)}</span><button class="add" data-action="add" aria-label="Add to bag" ${soldOut(p) ? 'disabled' : ''}><svg><use href="#i-plus"/></svg></button></div>
       </div>
     </article>`;
   }
@@ -185,11 +188,16 @@
   }
 
   function addToCart(id, qty = 1, silent = false) {
+    if (soldOut(byId[id])) {
+      if (!silent) toast(`${byId[id].name} is sold out`);
+      return false;
+    }
     const item = state.cart.find((i) => i.id === id);
     if (item) item.qty = Math.min(99, item.qty + qty);
     else state.cart.push({ id, qty });
     saveCart();
     if (!silent) toast(`${byId[id].name} added to your bag`);
+    return true;
   }
 
   function setQty(id, qty) {
@@ -311,7 +319,7 @@
         <div><div class="pdp__label">Best for</div><div class="chips">${p.concerns.map((c) => `<span class="chip">${concernName[c]}</span>`).join('')}</div></div>
         <div class="pdp__buy">
           <div class="qty"><button data-q="-1" aria-label="Decrease"><svg><use href="#i-minus"/></svg></button><span id="pdpQty">1</span><button data-q="1" aria-label="Increase"><svg><use href="#i-plus"/></svg></button></div>
-          <button class="btn btn--dark" id="pdpAdd"><svg><use href="#i-bag"/></svg> Add to bag</button>
+          <button class="btn btn--dark" id="pdpAdd" ${soldOut(p) ? 'disabled' : ''}><svg><use href="#i-bag"/></svg> ${soldOut(p) ? 'Sold out' : 'Add to bag'}</button>
           <button class="icon-btn wish ${inWish ? 'on' : ''}" data-action="wish" style="position:static;width:54px;height:54px;border:1px solid var(--line)" aria-label="Save to wishlist"><svg><use href="#i-heart${inWish ? '-fill' : ''}"/></svg></button>
         </div>
         <div class="pdp__perks">
@@ -508,6 +516,7 @@
     renderWish();
     renderOrders();
     renderHeroProduct();
+    renderSpotlight();
     if (state.routine.length) renderRoutine();
     if (state.openProduct && $('#productModal').classList.contains('open')) openProduct(state.openProduct);
     if ($('#checkoutModal').classList.contains('open') && $('#coForm')) openCheckout();
@@ -523,6 +532,18 @@
           <div style="display:flex;justify-content:space-between;align-items:center"><span class="price">${money(p.price)}</span><button class="add" data-action="add" style="width:32px;height:32px" aria-label="Add to bag"><svg><use href="#i-plus"/></svg></button></div>
         </div>
       </div>`;
+  }
+
+  function renderSpotlight() {
+    const p = byId['el-anr'] || FEATURED[0];
+    $('#spotlight').dataset.id = p.id;
+    $('#spotMedia').innerHTML = `<div class="spotlight__halo"></div>${Bottle.svg(p)}`;
+    $('#spotBrand').textContent = p.brand;
+    $('#spotName').textContent = p.name;
+    $('#spotDesc').textContent = p.desc;
+    $('#spotKeys').innerHTML = p.key.map((k) => `<span class="chip chip--glass">${esc(k)}</span>`).join('');
+    $('#spotPrice').innerHTML = `${priceHTML(p)} <small>${p.size}</small>`;
+    $('#spotRating').innerHTML = `<svg><use href="#i-star"/></svg> ${p.rating.toFixed(1)} · ${fmtCount(p.reviews)} reviews`;
   }
 
   function initHero() {
@@ -718,14 +739,14 @@
       { label: 'Step 4 · Protect', cats: ['sunscreen'] },
     ];
     return steps.map((s) => {
-      const pick = PRODUCTS.filter((p) => s.cats.includes(p.cat))
+      const pick = PRODUCTS.filter((p) => s.cats.includes(p.cat) && !soldOut(p))
         .map((p) => ({
           p,
           score: p.concerns.reduce((a, c) => a + (c === concerns[0] ? 3 : concerns.includes(c) ? 1.5 : 0), 0) + p.rating - p.price / 200,
         }))
-        .sort((a, b) => b.score - a.score)[0].p;
-      return { step: s.label, id: pick.id };
-    });
+        .sort((a, b) => b.score - a.score)[0]?.p;
+      return pick && { step: s.label, id: pick.id };
+    }).filter(Boolean);
   }
 
   function renderRoutine() {
@@ -755,6 +776,11 @@
 
     state.routine = buildRoutine(concerns);
     renderRoutine();
+
+    // Log the scan so the admin dashboard can report on skin types
+    const scans = store.get('scans', []);
+    scans.push({ date: new Date().toISOString(), score: overall, type });
+    store.set('scans', scans.slice(-500));
 
     requestAnimationFrame(() => requestAnimationFrame(() => {
       $$('#metrics .meter i').forEach((i) => (i.style.width = i.dataset.w + '%'));
@@ -819,7 +845,7 @@
     const item = state.cart.find((i) => i.id === id);
     switch (act.dataset.action) {
       case 'view': openProduct(id); break;
-      case 'add': addToCart(id); flashAdded(act); break;
+      case 'add': if (addToCart(id)) flashAdded(act); break;
       case 'wish': e.stopPropagation(); toggleWish(id); break;
       case 'inc': setQty(id, item.qty + 1); break;
       case 'dec': setQty(id, item.qty - 1); break;
