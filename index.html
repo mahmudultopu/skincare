@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seraé — AI Skincare & International Beauty Store</title>
+  <meta name="description" content="Scan your face with our AI cosmetologist and shop authentic skincare from 30+ international brands — The Ordinary, CeraVe, La Roche-Posay, Estée Lauder, SK-II and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231E1A17'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' fill='%23F5F0EA' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 7h12l1 13H5L6 7Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 7a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-heart-fill" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-search"viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c1-3.6 3.8-5.5 7-5.5s6 1.9 7 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9L12 3.5Z" fill="currentColor"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2l1.5-2h6L16.5 7h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5v-9Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="13" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4m-4 4 4-4 4 4M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.6 2.4 6.4 7 7-4.6.6-6.4 2.4-7 7-.6-4.6-2.4-6.4-7-7 4.6-.6 6.4-2.4 7-7Z" fill="currentColor"/><path d="M19 15c.3 1.8 1 2.6 2.8 2.8-1.8.3-2.5 1-2.8 2.8-.3-1.8-1-2.5-2.8-2.8 1.8-.2 2.5-1 2.8-2.8Z" fill="currentColor"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7" cy="17.5" r="1.8" fill="var(--bg,#fff)" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="17.5" r="1.8" fill="var(--bg,#fff)" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.3 3 8 7 9.5 4-1.5 7-5.2 7-9.5V6l-7-3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 12h17M12 3.5c2.5 2.6 3.6 5.4 3.6 8.5s-1.1 5.9-3.6 8.5c-2.5-2.6-3.6-5.4-3.6-8.5s1.1-5.9 3.6-8.5Z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14m0 0 7-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- Announcement -->
+<div class="announce">
+  <div class="announce__track">
+    <span>Free international shipping over <b data-money="75">$75</b></span>
+    <span>100% authentic — sourced from authorised distributors</span>
+    <span>Free AI skin analysis with every order</span>
+    <span>Ships to 60+ countries</span>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <button class="icon-btn header__menu" id="menuBtn" aria-label="Open menu"><svg><use href="#i-menu"/></svg></button>
+    <a href="#top" class="logo" aria-label="Seraé home">Sera<span>é</span></a>
+    <nav class="nav" id="nav">
+      <a href="#shop">Shop</a>
+      <a href="#analysis">AI Analysis</a>
+      <a href="#concerns">Concerns</a>
+      <a href="#brands">Brands</a>
+      <a href="#routine">Routine</a>
+    </nav>
+    <div class="header__actions">
+      <label class="currency" title="Currency">
+        <svg><use href="#i-globe"/></svg>
+        <select id="currency" aria-label="Currency"></select>
+      </label>
+      <button class="icon-btn" id="searchBtn" aria-label="Search"><svg><use href="#i-search"/></svg></button>
+      <button class="icon-btn" id="ordersBtn" aria-label="My orders"><svg><use href="#i-user"/></svg></button>
+      <button class="icon-btn" id="wishBtn" aria-label="Wishlist"><svg><use href="#i-heart"/></svg><span class="count" id="wishCount" hidden>0</span></button>
+      <button class="icon-btn icon-btn--dark" id="cartBtn" aria-label="Open bag"><svg><use href="#i-bag"/></svg><span class="count" id="cartCount" hidden>0</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow reveal"><svg><use href="#i-spark"/></svg> AI cosmetologist · now live</span>
+        <h1 class="hero__title reveal">Your skin,<br/><em>understood</em> by AI.</h1>
+        <p class="hero__lead reveal">Scan your face in 30 seconds. Our AI reads hydration, texture, tone and pores, then builds a personal routine from 30+ authentic international brands — delivered to your door.</p>
+        <div class="hero__cta reveal">
+          <a href="#analysis" class="btn btn--dark"><svg><use href="#i-camera"/></svg> Start free skin scan</a>
+          <a href="#shop" class="btn btn--ghost">Shop products <svg><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="hero__proof reveal">
+          <div class="avatars">
+            <img src="assets/img/avatar-1.jpg" alt="" /><img src="assets/img/avatar-2.jpg" alt="" /><img src="assets/img/avatar-3.jpg" alt="" /><img src="assets/img/avatar-4.jpg" alt="" />
+          </div>
+          <div>
+            <div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg> <b>4.9</b></div>
+            <small>Loved by 120,000+ skincare lovers</small>
+          </div>
+        </div>
+        <dl class="hero__stats reveal">
+          <div><dt>30+</dt><dd>Global brands</dd></div>
+          <div><dt>98%</dt><dd>Scan accuracy*</dd></div>
+          <div><dt>60+</dt><dd>Countries shipped</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero__visual reveal">
+        <div class="face-card" id="faceCard">
+          <img src="assets/img/hero.jpg" alt="Woman with natural skin being analysed by AI" class="face-card__img" />
+          <div class="face-card__vignette"></div>
+          <div class="scan-line"></div>
+          <svg class="mesh" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="42,37.5 55,27.5 70,30 77,40 75,57.5 70,71 60,76 50,71 41,62.5 40,50 42,37.5" />
+            <polyline points="55,27.5 56,42.5 66,55 73,43.75 70,30" />
+            <polyline points="44,55 56,42.5 50,52 66,55 64,65 50,71" />
+            <polyline points="41,62.5 50,52 60,76" />
+          </svg>
+          <div class="points" aria-hidden="true">
+            <i style="left:55%;top:22%"></i><i style="left:56%;top:34%"></i><i style="left:73%;top:35%"></i>
+            <i style="left:66%;top:44%"></i><i style="left:44%;top:44%"></i><i style="left:64%;top:52%"></i>
+            <i style="left:60%;top:61%"></i><i style="left:40%;top:50%"></i><i style="left:42%;top:30%"></i>
+            <i style="left:75%;top:46%"></i><i style="left:50%;top:57%"></i><i style="left:70%;top:24%"></i>
+          </div>
+
+          <div class="live-chip"><span class="dot"></span> Live analysis <b id="liveTimer">00:12</b></div>
+
+          <div class="tag tag--l" style="left:55%;top:22%;--d:.6s"><span>Fine lines</span><b>Low · 12%</b></div>
+          <div class="tag tag--l" style="left:44%;top:44%;--d:1.2s"><span>Hydration</span><b id="liveHyd">78%</b></div>
+          <div class="tag tag--r" style="left:73%;top:35%;--d:1.8s"><span>Dark circles</span><b>Mild</b></div>
+          <div class="tag tag--r" style="left:66%;top:47%;--d:2.4s"><span>Pores</span><b>Minimal</b></div>
+        </div>
+
+        <div class="float-card float-card--score">
+          <div class="ring" style="--p:86"><span>86</span></div>
+          <div>
+            <small>Skin score</small>
+            <b>Healthy · Combination</b>
+            <div class="bars"><i style="--w:78%"></i><i style="--w:64%"></i><i style="--w:88%"></i></div>
+          </div>
+        </div>
+
+        <div class="float-card float-card--product" id="heroProduct"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS MARQUEE -->
+  <section class="brands" id="brands" aria-label="Brands we carry">
+    <div class="marquee"><div class="marquee__track" id="brandTrack"></div></div>
+  </section>
+
+  <!-- AI ANALYSIS -->
+  <section class="analysis" id="analysis">
+    <div class="container">
+      <div class="analysis__grid">
+        <div class="analysis__copy">
+          <span class="eyebrow eyebrow--light reveal"><svg><use href="#i-spark"/></svg> AI skin analysis</span>
+          <h2 class="section-title reveal">Meet your personal<br/><em>AI cosmetologist.</em></h2>
+          <p class="lead reveal">Use your camera or upload a selfie. We measure six skin markers and instantly recommend products that fit your skin — no guesswork, no wasted money.</p>
+          <ol class="steps reveal">
+            <li><b>01</b><div><h4>Scan</h4><p>Face the camera in natural light, no makeup, for the best read.</p></div></li>
+            <li><b>02</b><div><h4>Analyse</h4><p>Hydration, oil balance, texture, redness, pores and radiance — scored 0–100.</p></div></li>
+            <li><b>03</b><div><h4>Shop your routine</h4><p>Get a matched AM / PM routine and add it to your bag in one tap.</p></div></li>
+          </ol>
+          <p class="fineprint reveal">Your photo is processed on your device and never uploaded. Results are a cosmetic estimate, not a medical diagnosis.</p>
+        </div>
+
+        <div class="scanner reveal">
+          <div class="scanner__view" id="scanView">
+            <img src="assets/img/hero.jpg" alt="" class="scanner__placeholder" id="scanPlaceholder" />
+            <video id="scanVideo" playsinline muted></video>
+            <canvas id="scanCanvas" hidden></canvas>
+            <img id="scanImage" alt="Your photo" hidden />
+            <div class="scanner__oval"></div>
+            <div class="scanner__grid"></div>
+            <div class="scanner__line"></div>
+            <div class="scanner__status" id="scanStatus">Ready when you are</div>
+            <div class="scanner__count" id="scanCount" hidden>3</div>
+          </div>
+          <div class="scanner__actions">
+            <button class="btn btn--light" id="camBtn"><svg><use href="#i-camera"/></svg> Use camera</button>
+            <label class="btn btn--outline-light" for="uploadInput"><svg><use href="#i-upload"/></svg> Upload selfie</label>
+            <input type="file" id="uploadInput" accept="image/*" hidden />
+            <button class="btn btn--text-light" id="sampleBtn">Try sample photo</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="results" id="results" hidden>
+        <div class="results__head">
+          <div class="results__score">
+            <div class="ring ring--lg" id="resRing" style="--p:0"><span id="resScore">0</span></div>
+            <div>
+              <small>Your skin score</small>
+              <h3 id="resType">—</h3>
+              <p id="resSummary"></p>
+            </div>
+          </div>
+          <button class="btn btn--light" id="addRoutineBtn"><svg><use href="#i-bag"/></svg> Add full routine to bag</button>
+        </div>
+        <div class="metrics" id="metrics"></div>
+        <h4 class="results__sub">Your matched routine</h4>
+        <div class="routine-list" id="routineList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCERNS -->
+  <section class="concerns section" id="concerns">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal">Shop by concern</span>
+          <h2 class="section-title reveal">What does your skin <em>need</em> today?</h2>
+        </div>
+        <p class="lead reveal">Curated edits from dermatologist-loved brands, grouped by the results you want to see.</p>
+      </div>
+      <div class="concern-grid">
+        <a class="concern-tile reveal" href="#shop" data-concern="acne"><img src="assets/img/concern-acne.jpg" alt="" loading="lazy" /><div><small>01</small><h3>Clear & calm</h3><p>Acne, breakouts, congestion</p></div><span class="concern-tile__go"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="concern-tile reveal" href="#shop" data-concern="dryness"><img src="assets/img/concern-hydration.jpg" alt="" loading="lazy" /><div><small>02</small><h3>Deep hydration</h3><p>Dry, tight, dehydrated skin</p></div><span class="concern-tile__go"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="concern-tile reveal" href="#shop" data-concern="dullness"><img src="assets/img/concern-glow.jpg" alt="" loading="lazy" /><div><small>03</small><h3>Glow & radiance</h3><p>Dullness, uneven tone</p></div><span class="concern-tile__go"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="concern-tile reveal" href="#shop" data-concern="aging"><img src="assets/img/concern-aging.jpg" alt="" loading="lazy" /><div><small>04</small><h3>Age-defying</h3><p>Fine lines, firmness</p></div><span class="concern-tile__go"><svg><use href="#i-arrow"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="shop section" id="shop">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal">The shop</span>
+          <h2 class="section-title reveal">International skincare, <em>one bag.</em></h2>
+        </div>
+        <p class="lead reveal">Authentic products from the brands you love — prices shown in your currency.</p>
+      </div>
+
+      <div class="tabs" id="catTabs" role="tablist"></div>
+
+      <div class="toolbar">
+        <label class="search">
+          <svg><use href="#i-search"/></svg>
+          <input type="search" id="searchInput" placeholder="Search products, brands, ingredients…" />
+        </label>
+        <select id="brandFilter" aria-label="Filter by brand"><option value="all">All brands</option></select>
+        <select id="concernFilter" aria-label="Filter by concern"><option value="all">All concerns</option></select>
+        <select id="sortSelect" aria-label="Sort">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+          <option value="rating">Top rated</option>
+          <option value="reviews">Most reviewed</option>
+        </select>
+      </div>
+      <div class="shop__meta"><span id="resultCount"></span><button class="link-btn" id="clearFilters" hidden>Clear filters</button></div>
+
+      <div class="grid" id="productGrid"></div>
+      <div class="empty" id="emptyState" hidden>
+        <h3>No products match.</h3><p>Try a different search or clear your filters.</p>
+      </div>
+      <div class="load-more"><button class="btn btn--ghost" id="loadMore">Load more products</button></div>
+      <p class="fineprint fineprint--center">Prices are approximate international retail and may vary. Converted currencies use indicative rates.</p>
+    </div>
+  </section>
+
+  <!-- ROUTINE / EXPERT -->
+  <section class="routine section" id="routine">
+    <div class="container routine__grid">
+      <div class="routine__media reveal">
+        <img src="assets/img/expert.jpg" alt="Cosmetologist performing a facial treatment" loading="lazy" />
+        <div class="routine__badge">
+          <svg><use href="#i-shield"/></svg>
+          <div><b>Reviewed by cosmetologists</b><small>Every AI routine is checked against expert guidelines</small></div>
+        </div>
+      </div>
+      <div class="routine__copy">
+        <span class="eyebrow reveal">The 4-step ritual</span>
+        <h2 class="section-title reveal">A routine that <em>actually</em> works for you.</h2>
+        <p class="lead reveal">Great skin is consistency, not complexity. Tap a step to shop the products our experts reach for.</p>
+        <div class="ritual">
+          <button class="ritual__step reveal" data-cat="cleanser"><span>01</span><div><h4>Cleanse</h4><p>Remove sunscreen, oil and pollution without stripping.</p></div><svg><use href="#i-arrow"/></svg></button>
+          <button class="ritual__step reveal" data-cat="serum"><span>02</span><div><h4>Treat</h4><p>Targeted serums for acne, spots, lines or dullness.</p></div><svg><use href="#i-arrow"/></svg></button>
+          <button class="ritual__step reveal" data-cat="moisturizer"><span>03</span><div><h4>Hydrate</h4><p>Lock in moisture and support your skin barrier.</p></div><svg><use href="#i-arrow"/></svg></button>
+          <button class="ritual__step reveal" data-cat="sunscreen"><span>04</span><div><h4>Protect</h4><p>Daily SPF — the single best anti-ageing step.</p></div><svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERKS -->
+  <section class="perks">
+    <div class="container perks__grid">
+      <div class="perk reveal"><svg><use href="#i-shield"/></svg><div><h4>100% authentic</h4><p>Sourced from brands & authorised distributors only.</p></div></div>
+      <div class="perk reveal"><svg><use href="#i-truck"/></svg><div><h4>Worldwide delivery</h4><p>Tracked shipping to 60+ countries, free over <span data-money="75">$75</span>.</p></div></div>
+      <div class="perk reveal"><svg><use href="#i-spark"/></svg><div><h4>AI-matched routines</h4><p>Free skin analysis and personal recommendations.</p></div></div>
+      <div class="perk reveal"><svg><use href="#i-leaf"/></svg><div><h4>30-day returns</h4><p>Unopened products, no questions asked.</p></div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="reviews section">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow reveal">Real results</span>
+        <h2 class="section-title reveal">Skin that speaks <em>for itself.</em></h2>
+      </div>
+      <div class="reviews__grid">
+        <figure class="review reveal">
+          <div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <blockquote>"The scan told me I was dehydrated, not oily. Switched to the routine it suggested and my skin has never been calmer."</blockquote>
+          <figcaption><img src="assets/img/avatar-1.jpg" alt="" /><div><b>Emma R.</b><small>Combination skin · London</small></div></figcaption>
+        </figure>
+        <figure class="review review--feature reveal">
+          <div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <blockquote>"Finally one place for my K-beauty and my French pharmacy favourites. Delivery was fast and everything was genuine."</blockquote>
+          <figcaption><img src="assets/img/avatar-3.jpg" alt="" /><div><b>Amara O.</b><small>Dry skin · Dubai</small></div></figcaption>
+        </figure>
+        <figure class="review reveal">
+          <div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+          <blockquote>"I love seeing prices in my own currency. Built a full routine under budget and the AI picks were spot on."</blockquote>
+          <figcaption><img src="assets/img/avatar-2.jpg" alt="" /><div><b>Sofia M.</b><small>Sensitive skin · Toronto</small></div></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta__card reveal">
+        <img src="assets/img/flatlay.jpg" alt="" class="cta__bg" loading="lazy" />
+        <div class="cta__content">
+          <span class="eyebrow eyebrow--light">Members' club</span>
+          <h2>Get 10% off your<br/><em>first routine.</em></h2>
+          <p>New launches, restocks and skin tips from our cosmetologists. No spam, ever.</p>
+          <form class="cta__form" id="newsletterForm">
+            <input type="email" required placeholder="Your email address" aria-label="Email address" />
+            <button class="btn btn--light" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a href="#top" class="logo logo--light">Sera<span>é</span></a>
+      <p>AI-powered skincare and authentic international beauty, delivered worldwide.</p>
+    </div>
+    <div><h5>Shop</h5><a href="#shop" data-cat-link="serum">Serums</a><a href="#shop" data-cat-link="moisturizer">Moisturizers</a><a href="#shop" data-cat-link="sunscreen">Sunscreen</a><a href="#shop" data-cat-link="cleanser">Cleansers</a></div>
+    <div><h5>Discover</h5><a href="#analysis">AI skin analysis</a><a href="#concerns">Shop by concern</a><a href="#routine">Routine guide</a><a href="#brands">Brands</a></div>
+    <div><h5>Help</h5><a href="#" data-open="orders">Track my order</a><a href="#">Shipping & returns</a><a href="#">Authenticity promise</a><a href="#">Contact us</a></div>
+  </div>
+  <div class="container footer__base">
+    <small>© <span id="year"></span> Seraé. All rights reserved.</small>
+    <small>Brand names and trademarks belong to their respective owners.</small>
+  </div>
+</footer>
+
+<!-- ===== Overlays ===== -->
+<div class="scrim" id="scrim"></div>
+
+<!-- Cart drawer -->
+<aside class="drawer" id="cartDrawer" aria-label="Shopping bag">
+  <div class="drawer__head"><h3>Your bag <span id="cartHeadCount"></span></h3><button class="icon-btn" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button></div>
+  <div class="ship-meter" id="shipMeter"></div>
+  <div class="drawer__body" id="cartItems"></div>
+  <div class="drawer__foot" id="cartFoot">
+    <div class="line"><span>Subtotal</span><b id="cartSubtotal"></b></div>
+    <small class="muted">Shipping & taxes calculated at checkout.</small>
+    <button class="btn btn--dark btn--block" id="checkoutBtn">Checkout <svg><use href="#i-arrow"/></svg></button>
+    <a class="btn btn--whatsapp btn--block" id="waBtn" target="_blank" rel="noopener" hidden>Order on WhatsApp</a>
+  </div>
+</aside>
+
+<!-- Wishlist drawer -->
+<aside class="drawer" id="wishDrawer" aria-label="Wishlist">
+  <div class="drawer__head"><h3>Wishlist</h3><button class="icon-btn" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button></div>
+  <div class="drawer__body" id="wishItems"></div>
+</aside>
+
+<!-- Orders drawer -->
+<aside class="drawer" id="ordersDrawer" aria-label="My orders">
+  <div class="drawer__head"><h3>My orders</h3><button class="icon-btn" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button></div>
+  <div class="drawer__body" id="ordersList"></div>
+</aside>
+
+<!-- Search overlay -->
+<div class="search-pop" id="searchPop">
+  <div class="search-pop__box">
+    <svg><use href="#i-search"/></svg>
+    <input type="search" id="searchPopInput" placeholder="Search 45+ products from 30+ brands" />
+    <button class="icon-btn" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button>
+  </div>
+  <div class="search-pop__results" id="searchPopResults"></div>
+</div>
+
+<!-- Product modal -->
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-label="Product details">
+  <div class="modal__card modal__card--product">
+    <button class="icon-btn modal__close" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button>
+    <div id="productModalBody"></div>
+  </div>
+</div>
+
+<!-- Checkout modal -->
+<div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout">
+  <div class="modal__card modal__card--checkout">
+    <button class="icon-btn modal__close" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button>
+    <div id="checkoutBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/products.js"></script>
+<script src="js/bottle.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
