@@ -45,6 +45,7 @@ skincare/
 │   ├── app.js          # Shop, cart, checkout, orders, currency, AI scan
 │   └── admin.js        # Dashboard, charts, orders, products, customers, settings
 ├── assets/img/         # Photography (hero, concerns, avatars)
+├── assets/products/    # Product packshots (WebP, white background)
 └── vercel.json         # Security and cache headers
 ```
 
@@ -87,7 +88,7 @@ const CONFIG = {
   desc: 'Short description.', key: ['Key ingredient'] }
 ```
 
-`shape` controls the packshot (`dropper`, `pump`, `tube`, `jar`, `bottle`, `spray`). `body` and `cap` set its colours.
+Each product shows its photo from `assets/products/<id>.webp`, or the URL set in `img`. Without a photo, a drawn pack is used: `shape` controls it (`dropper`, `pump`, `tube`, `jar`, `bottle`, `spray`), and `body` and `cap` set its colours.
 
 Promo codes are defined in `PROMOS` inside [`js/app.js`](js/app.js) (default: `WELCOME10`).
 
@@ -109,7 +110,7 @@ The dashboard reads orders, AI scans and product edits from the same browser sto
 
 - **Orders**: orders are currently stored in the shopper's browser (`localStorage`). Connect a backend or payment provider (e.g. Stripe, SSLCommerz or bKash) to receive and process real orders.
 - **Prices**: prices are approximate international retail in USD, and conversion rates are indicative. Update them in `products.js`.
-- **Product images**: packshots are stylised SVG renders. Replace them with images you are licensed to use.
+- **Product images**: the packshots in `assets/products/` are manufacturer product photos, gathered from an online product database for this demo. Before launch, confirm your right to use them, usually through your brand or distributor agreements, or replace them with your own photography.
 - **Content**: review counts, statistics and testimonials are placeholders. Replace them with real data.
 - **Skin analysis**: the scan is an on-device heuristic for cosmetic guidance, not a medical diagnosis.
 
