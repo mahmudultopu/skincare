@@ -258,3 +258,31 @@ const PRODUCTS = [
     concerns: ['aging'], shape: 'pump', body: '#C9A8D3', cap: '#F1ECF4', label: ['Retinal', 'ReSculpt'],
     desc: 'Overnight retinal treatment that visibly lifts, firms and smooths deep lines and wrinkles.', key: ['Retinal', 'Peptides', 'Hyaluronic acid'] },
 ];
+
+/* ----------------------------------------------------------
+   Admin overrides (saved from admin.html in this browser):
+   store settings, product edits, added and hidden products.
+   ---------------------------------------------------------- */
+(() => {
+  try {
+    const cfg = JSON.parse(localStorage.getItem('serae:config') || 'null');
+    if (cfg) {
+      if (cfg.freeShippingOver != null) CONFIG.freeShippingOver = cfg.freeShippingOver;
+      if (cfg.shipping) Object.assign(CONFIG.shipping, cfg.shipping);
+      if (cfg.whatsapp != null) CONFIG.whatsapp = cfg.whatsapp;
+      Object.entries(cfg.rates || {}).forEach(([code, rate]) => {
+        if (CONFIG.currencies[code] && rate > 0) CONFIG.currencies[code].rate = rate;
+      });
+    }
+    const cat = JSON.parse(localStorage.getItem('serae:catalog') || 'null');
+    if (cat) {
+      PRODUCTS.forEach((p) => Object.assign(p, cat.edits?.[p.id]));
+      (cat.added || []).forEach((p) => PRODUCTS.push(p));
+    }
+  } catch { /* storage unavailable — use defaults */ }
+
+  // The storefront never shows hidden products; the admin panel needs them all.
+  if (!window.SERAE_ADMIN) {
+    for (let i = PRODUCTS.length - 1; i >= 0; i--) if (PRODUCTS[i].hidden) PRODUCTS.splice(i, 1);
+  }
+})();
