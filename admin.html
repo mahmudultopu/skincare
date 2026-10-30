@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seraé Admin — Dashboard</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23B9785A'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="a-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="4" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="13" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="a-bag" viewBox="0 0 24 24"><path d="M6 7h12l1 13H5L6 7Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 7a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="a-box" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="a-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 19c.8-3.2 3-5 5.5-5s4.7 1.8 5.5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M15.5 5.6a3 3 0 0 1 0 5.8M17 14.3c1.8.6 3 2.2 3.5 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="a-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M5.6 18.4l1.6-1.6M16.8 7.2l1.6-1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="a-spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.6 2.4 6.4 7 7-4.6.6-6.4 2.4-7 7-.6-4.6-2.4-6.4-7-7 4.6-.6 6.4-2.4 7-7Z" fill="currentColor"/></symbol>
+  <symbol id="a-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="a-out" viewBox="0 0 24 24"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-store" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5M4 9.5h16M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0M5.5 12v8h13v-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="a-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="a-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="a-down" viewBox="0 0 24 24"><path d="M12 4v11m-4-4 4 4 4-4M5 19h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-up" viewBox="0 0 24 24"><path d="m6 14 6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-dn" viewBox="0 0 24 24"><path d="m6 10 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="a-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7" cy="17.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="17.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="a-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m9.5 9.5 5 5m0-5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="a-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="a-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="a-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="orbs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<!-- ============ Login ============ -->
+<section class="login" id="login">
+  <form class="login__card glass" id="loginForm">
+    <div class="brand"><span class="brand__mark">S</span><div><b>Sera<em>é</em></b><small>Admin console</small></div></div>
+    <h1>Welcome back</h1>
+    <p>Sign in to manage orders, products and your store.</p>
+    <label class="field"><span>Email</span><input type="email" value="admin@serae.store" autocomplete="username" /></label>
+    <label class="field"><span>Password</span><input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password" required /></label>
+    <div class="login__err" id="loginErr" hidden>That password isn't right.</div>
+    <button class="btn btn--accent btn--block" type="submit"><svg><use href="#a-lock"/></svg> Sign in</button>
+    <p class="login__hint">Demo password: <code>serae2026</code></p>
+  </form>
+</section>
+
+<!-- ============ App ============ -->
+<div class="app" id="app" hidden>
+  <aside class="side glass" id="side">
+    <div class="brand"><span class="brand__mark">S</span><div><b>Sera<em>é</em></b><small>Admin console</small></div></div>
+    <nav class="side__nav" id="sideNav">
+      <button data-view="dashboard" class="active"><svg><use href="#a-grid"/></svg><span>Dashboard</span></button>
+      <button data-view="orders"><svg><use href="#a-bag"/></svg><span>Orders</span><em id="navOrders" hidden></em></button>
+      <button data-view="products"><svg><use href="#a-box"/></svg><span>Products</span></button>
+      <button data-view="customers"><svg><use href="#a-users"/></svg><span>Customers</span></button>
+      <button data-view="settings"><svg><use href="#a-gear"/></svg><span>Settings</span></button>
+    </nav>
+    <div class="side__card">
+      <svg><use href="#a-spark"/></svg>
+      <b>AI skin scans</b>
+      <p><span id="sideScans">0</span> scans this month drive routine sales.</p>
+    </div>
+    <div class="side__foot">
+      <a href="index.html" class="side__link"><svg><use href="#a-store"/></svg><span>View store</span></a>
+      <button class="side__link" id="logoutBtn"><svg><use href="#a-out"/></svg><span>Sign out</span></button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="top">
+      <button class="icon-btn top__menu" id="menuBtn" aria-label="Menu"><svg><use href="#a-menu"/></svg></button>
+      <div class="top__title">
+        <h1 id="viewTitle">Dashboard</h1>
+        <p id="viewSub"></p>
+      </div>
+      <div class="top__actions">
+        <label class="search glass"><svg><use href="#a-search"/></svg><input id="globalSearch" placeholder="Search orders, products…" /></label>
+        <div class="seg glass" id="rangeSeg" role="tablist" aria-label="Date range">
+          <button data-range="7">7D</button><button data-range="30" class="active">30D</button><button data-range="90">90D</button>
+        </div>
+        <div class="avatar" title="Signed in as admin">AD</div>
+      </div>
+    </header>
+
+    <!-- Dashboard -->
+    <section class="view active" data-view="dashboard">
+      <div class="demo-banner glass" id="demoBanner" hidden>
+        <svg><use href="#a-spark"/></svg>
+        <span>Showing <b>sample data</b> alongside real orders placed in this browser.</span>
+        <button class="link" data-goto="settings">Manage data</button>
+      </div>
+
+      <div class="kpis" id="kpis"></div>
+
+      <div class="grid-2">
+        <article class="panel glass panel--chart">
+          <header class="panel__head">
+            <div><h3>Revenue</h3><p id="revSub">Daily revenue, excluding cancelled orders</p></div>
+            <div class="seg seg--sm" id="revView"><button data-mode="chart" class="active">Chart</button><button data-mode="table">Table</button></div>
+          </header>
+          <div class="chart" id="revChart"></div>
+          <div class="chart-table" id="revTable" hidden></div>
+        </article>
+
+        <article class="panel glass">
+          <header class="panel__head"><div><h3>Order status</h3><p>All orders in range</p></div></header>
+          <div class="status-grid" id="statusGrid"></div>
+          <div class="panel__divider"></div>
+          <header class="panel__head panel__head--tight"><div><h3>Skin types scanned</h3><p id="scanSub">From AI skin analysis</p></div></header>
+          <div class="hbars" id="scanBars"></div>
+        </article>
+      </div>
+
+      <div class="grid-2 grid-2--even">
+        <article class="panel glass">
+          <header class="panel__head"><div><h3>Sales by category</h3><p>Revenue in range</p></div></header>
+          <div class="hbars" id="catBars"></div>
+        </article>
+        <article class="panel glass">
+          <header class="panel__head"><div><h3>Top products</h3><p>By revenue in range</p></div><button class="link" data-goto="products">All products</button></header>
+          <ol class="top-list" id="topProducts"></ol>
+        </article>
+      </div>
+
+      <article class="panel glass">
+        <header class="panel__head"><div><h3>Recent orders</h3><p>Latest activity across your store</p></div><button class="link" data-goto="orders">View all <svg><use href="#a-arrow"/></svg></button></header>
+        <div class="table-wrap"><table class="table" id="recentOrders"></table></div>
+      </article>
+    </section>
+
+    <!-- Orders -->
+    <section class="view" data-view="orders">
+      <div class="toolbar">
+        <div class="seg glass" id="statusFilter">
+          <button data-status="all" class="active">All</button><button data-status="Processing">Processing</button><button data-status="Shipped">Shipped</button><button data-status="Delivered">Delivered</button><button data-status="Cancelled">Cancelled</button>
+        </div>
+        <button class="btn btn--glass" id="exportCsv"><svg><use href="#a-down"/></svg> Export CSV</button>
+      </div>
+      <article class="panel glass panel--flush">
+        <div class="table-wrap"><table class="table table--click" id="ordersTable"></table></div>
+        <div class="table-foot" id="ordersFoot"></div>
+      </article>
+    </section>
+
+    <!-- Products -->
+    <section class="view" data-view="products">
+      <div class="toolbar">
+        <select class="select glass" id="catFilter" aria-label="Category"></select>
+        <button class="btn btn--accent" id="addProduct"><svg><use href="#a-plus"/></svg> Add product</button>
+      </div>
+      <article class="panel glass panel--flush">
+        <div class="table-wrap"><table class="table table--click" id="productsTable"></table></div>
+      </article>
+    </section>
+
+    <!-- Customers -->
+    <section class="view" data-view="customers">
+      <article class="panel glass panel--flush">
+        <div class="table-wrap"><table class="table" id="customersTable"></table></div>
+      </article>
+    </section>
+
+    <!-- Settings -->
+    <section class="view" data-view="settings">
+      <form class="settings" id="settingsForm">
+        <article class="panel glass">
+          <header class="panel__head"><div><h3>Shipping & checkout</h3><p>Applied to the storefront in this browser</p></div></header>
+          <div class="fields">
+            <label class="field"><span>Free shipping over (USD)</span><input type="number" step="0.01" min="0" name="freeShippingOver" /></label>
+            <label class="field"><span>Standard shipping (USD)</span><input type="number" step="0.01" min="0" name="standard" /></label>
+            <label class="field"><span>Express shipping (USD)</span><input type="number" step="0.01" min="0" name="express" /></label>
+            <label class="field"><span>WhatsApp order number</span><input name="whatsapp" placeholder="e.g. 8801XXXXXXXXX" /></label>
+          </div>
+        </article>
+        <article class="panel glass">
+          <header class="panel__head"><div><h3>Currency rates</h3><p>1 USD equals…</p></div></header>
+          <div class="fields fields--4" id="rateFields"></div>
+        </article>
+        <article class="panel glass">
+          <header class="panel__head"><div><h3>Data & security</h3><p>Everything is stored locally in this browser</p></div></header>
+          <label class="switch-row"><div><b>Show sample data</b><small>Mix demo orders and scans into reports</small></div><input type="checkbox" class="switch" name="showDemo" /></label>
+          <div class="fields">
+            <label class="field"><span>Admin password</span><input type="password" name="password" placeholder="Leave blank to keep current" autocomplete="new-password" /></label>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn--glass" id="exportJson"><svg><use href="#a-down"/></svg> Export all data</button>
+            <button type="button" class="btn btn--glass" id="resetCatalog">Reset product edits</button>
+            <button type="button" class="btn btn--danger" id="clearOrders">Delete real orders</button>
+          </div>
+        </article>
+        <div class="settings__save"><button class="btn btn--accent" type="submit"><svg><use href="#a-check"/></svg> Save settings</button></div>
+      </form>
+    </section>
+  </main>
+</div>
+
+<!-- Order sheet -->
+<div class="scrim" id="scrim"></div>
+<aside class="sheet glass-strong" id="orderSheet" aria-label="Order details"></aside>
+
+<!-- Product editor -->
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-label="Edit product">
+  <form class="modal__card glass-strong" id="productForm"></form>
+</div>
+
+<div class="tooltip" id="tooltip" role="status"></div>
+<div class="toast" id="toast"></div>
+
+<script>window.SERAE_ADMIN = true;</script>
+<script src="js/products.js"></script>
+<script src="js/bottle.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
